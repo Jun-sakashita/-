@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script>
+$(function() {
+    $(".A").click(function() {
+        $("B").toggleClass("C");
+    });
+});
+</script>
+<style>
+  .A{
+    text-align: center;
+  }
+  .a{
+    width: 5em;
+    height:2em;
+    font-size: 25px;
+  }
+  .B{
+    background: #ffaf74;
+  }
+  .C{
+      display: none;
+  }
+  </style>
+<style>
+   .box5 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+  }
+  .box5 p {
+    margin: 0; 
+    padding: 0;
+  }
+  </style>
+  <style>
+    .box select{
+      width: 300px;
+      font-size: 25px;
+    }
+</style>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Progate</title>
+    <h1 class="title"style="text-align: center">
+      <font size="40px">
+      献立くん
+      </font>
+    </h1>
+  </head>
+<body>
+<div class="box">
+  <div style="text-align: center">
+  <select>
+    <option value="" selected>選択してください</option>
+    <option value=”item1”>和食</option>
+    <option value=”item2”>洋食</option>
+    <option value=”item3”>中華</option>
+  </select>
+</div>
+<br>
+<br>
+<div class="box">
+  <div style="text-align: center">
+  <select>
+    <option value="" selected>難易度</option>
+    <option value=”item1”>1</option>
+    <option value=”item2”>2</option>
+    <option value=”item3”>3</option>
+  </select>
+</div>
+<br>
+<br>
+<div class="A">
+  <input type="button" id="mybutton" value="OK" class="a">
+
+  <script>
+    var myfunc = function (button) {
+
+button.value = "After";
+
+}
+    button.addEventListener("click",myfunc);
+  </script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="box5">
+  <p></p>
+</div>
+
+</body>
+</html>
