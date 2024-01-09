@@ -108,10 +108,13 @@
   <div class="select-block">
     <div style="text-align: center">
     <label>料理名：
-      <select id="product-select" disabled>
+      <!--
+        <select id="product-select" disabled>
         <option>選択してください</option>
       </select>
-      <!--<input type="text">-->
+    -->
+      <div id="ryouri">
+      </div>
     </label>
   </div>
 </div>
@@ -120,7 +123,7 @@
 const categories = [
   '和食',
   '洋食',
-  '中華'
+  '中華',
 ];
 
 // 小分類と商品名は、それぞれ一つ前の選択肢と紐付けるためにオブジェクト型を使う
@@ -135,7 +138,7 @@ const subCategories = [
   {category: '中華', name: '1'},
   {category: '中華', name: '2'},
   {category: '中華', name: '3'},
-];
+]; 
 
 const products = [
   {category: '和食',subCategory: '1', name: '焼き魚'},
@@ -175,6 +178,7 @@ function optionClear(node) {
 const categorySelect3 = document.getElementById('category-select-3');
 const subCategorySelect3 = document.getElementById('sub-category-select-3');
 const productSelect = document.getElementById('product-select');
+const ryouri = document.getElementById('ryouri');
 
 // 大分類のプルダウンを生成
 categories.forEach(category => {
@@ -193,9 +197,9 @@ categorySelect3.addEventListener('input', () => {
   subCategorySelect3.disabled = false;
 
   // 商品のプルダウンを「選択してください」のみにし、選択（クリック）できないようにする
-  optionClear('#product-select > option');
-  productSelect.appendChild(firstOption());
-  productSelect.disabled = true;
+  //optionClear('#product-select > option');
+  //productSelect.appendChild(firstOption());
+  //productSelect.disabled = true;
 
   // 大分類が選択されていない（「選択してください」になっている）とき、小分類を選択（クリック）できないようにする
   if (categorySelect3.value == '選択してください') {
@@ -218,9 +222,9 @@ categorySelect3.addEventListener('input', () => {
 subCategorySelect3.addEventListener('input', () => {
   
   // 商品のプルダウンを「選択してください」のみにし、選択（クリック）できるようにする
-  optionClear('#product-select > option');
-  productSelect.appendChild(firstOption());
-  productSelect.disabled = false;
+  //optionClear('#product-select > option');
+  //productSelect.appendChild(firstOption());
+  //productSelect.disabled = false;
   
   // 小分類が選択されていない（「選択してください」になっている）とき、商品を選択（クリック）できないようにする
   if (subCategorySelect3.value == '選択してください') {
@@ -230,11 +234,13 @@ subCategorySelect3.addEventListener('input', () => {
   
   // 小分類で選択されたカテゴリーと同じ商品のみを、プルダウンの選択肢に設定する
   products.forEach(product => {
-    if (subCategorySelect3.value == product.subCategory) {
+    if (categorySelect3.value == product.category && subCategorySelect3.value == product.subCategory) {
       const option = document.createElement('option');
       option.textContent = product.name;
   
-      productSelect.appendChild(option);
+      //productSelect.appendChild(option);
+
+      ryouri.textContent = product.name;
     }
   });
 });
