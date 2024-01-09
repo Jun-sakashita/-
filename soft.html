@@ -111,6 +111,7 @@
       <select id="product-select" disabled>
         <option>選択してください</option>
       </select>
+      <!--<input type="text">-->
     </label>
   </div>
 </div>
@@ -123,34 +124,36 @@ const categories = [
 ];
 
 // 小分類と商品名は、それぞれ一つ前の選択肢と紐付けるためにオブジェクト型を使う
+
 const subCategories = [
   {category: '和食', name: '1'},
   {category: '和食', name: '2'},
   {category: '和食', name: '3'},
-  {category: '洋食', name: '⓵'},
-  {category: '洋食', name: '⓶'},
-  {category: '洋食', name: '⓷'},
-  {category: '中華', name: '➀'},
-  {category: '中華', name: '➁'},
-  {category: '中華', name: '➂'},
+  {category: '洋食', name: '1'},
+  {category: '洋食', name: '2'},
+  {category: '洋食', name: '3'},
+  {category: '中華', name: '1'},
+  {category: '中華', name: '2'},
+  {category: '中華', name: '3'},
 ];
 
 const products = [
-  {subCategory: '1', name: '焼き魚'},
-  {subCategory: '1', name: '卵焼き'},
-  {subCategory: '2', name: '生姜焼き'},
-  {subCategory: '2', name: '煮魚'},
-  {subCategory: '3', name: '肉じゃが'},
-  {subCategory: '3', name: '角煮'},
-  {subCategory: '⓵', name: 'オムライス'},
-  {subCategory: '⓶', name: 'ミートソース'},
-  {subCategory: '⓶', name: 'ハンバーグ'},
-  {subCategory: '⓷', name: 'グラタン'},
-  {subCategory: '➀', name: '唐揚げ'},
-  {subCategory: '➀', name: 'チャーハン'},
-  {subCategory: '➁', name: '回鍋肉'},
-  {subCategory: '➂', name: 'エビチリ'},
-  {subCategory: '➂', name: '餃子'},
+  {category: '和食',subCategory: '1', name: '焼き魚'},
+  {category: '和食',subCategory: '1', name: '卵焼き'},
+  {category: '和食',subCategory: '2', name: '生姜焼き'},
+  {category: '和食',subCategory: '2', name: '煮魚'},
+  {category: '和食',subCategory: '3', name: '肉じゃが'},
+  {category: '和食',subCategory: '3', name: '角煮'},
+  {category: '洋食',subCategory: '1', name: 'オムライス'},
+  {category: '洋食',subCategory: '2', name: 'ミートソース'},
+  {category: '洋食',subCategory: '2', name: 'ハンバーグ'},
+  {category: '洋食',subCategory: '3', name: 'グラタン'},
+  {category: '洋食',subCategory: '3', name: 'シチュー'},
+  {category: '中華',subCategory: '1', name: '唐揚げ'},
+  {category: '中華',subCategory: '1', name: 'チャーハン'},
+  {category: '中華',subCategory: '2', name: '回鍋肉'},
+  {category: '中華',subCategory: '3', name: 'エビチリ'},
+  {category: '中華',subCategory: '3', name: '餃子'},
 ];
 
 // 「選択してください」というプルダウンの選択肢を作成する関数
