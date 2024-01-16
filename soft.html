@@ -113,7 +113,7 @@
         <option>選択してください</option>
       </select>
     -->
-      <div id="ryouri">
+      <div style="border: solid 1px;width: 300px;font-size: 100%; padding: 15px;margin: auto;" id="ryouri">
       </div>
     </label>
   </div>
@@ -233,7 +233,10 @@ subCategorySelect3.addEventListener('input', () => {
   }
   
   // 小分類で選択されたカテゴリーと同じ商品のみを、プルダウンの選択肢に設定する
-  products.forEach(product => {
+  ryouri.textContent=products.filter(product => categorySelect3.value == product.category && subCategorySelect3.value == product.subCategory)
+  .map(product => product.name).reduce((x,y)=>x+'  　'+y,'')
+
+   /* products.forEach(product => {
     if (categorySelect3.value == product.category && subCategorySelect3.value == product.subCategory) {
       const option = document.createElement('option');
       option.textContent = product.name;
@@ -242,7 +245,11 @@ subCategorySelect3.addEventListener('input', () => {
 
       ryouri.textContent = product.name;
     }
+    
+
+
   });
+  */
 });
     </script>
 <!--
